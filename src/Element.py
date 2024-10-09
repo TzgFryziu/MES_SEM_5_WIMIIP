@@ -4,5 +4,5 @@ class Element:
 
     def __repr__(self) -> str:
 
-        res = ", ".join(str(item) for item in self.id)
+        res = ", ".join(str(item + 1) for item in self.id)
         return res
