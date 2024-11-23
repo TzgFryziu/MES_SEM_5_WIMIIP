@@ -20,9 +20,11 @@ def file_data(filename) -> GlobalData:
         specific_heat=data["SpecificHeat"],
         nodes_number=data["Nodes number"],
         elements_number=data["Elements number"],
+        width=data["Width"],
+        height=data["Height"],
     )
 
 
 data = file_data("test.txt")
-grid = data.create_grid(0.1, 0.1)
+grid = data.create_grid()
 grid.display()

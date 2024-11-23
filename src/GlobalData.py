@@ -17,6 +17,8 @@ class GlobalData:
         specific_heat,
         nodes_number,
         elements_number,
+        width,
+        height,
     ) -> None:
         self.simulation_time = simulation_time
         self.simulation_step_time = simulation_step_time
@@ -28,6 +30,8 @@ class GlobalData:
         self.specific_heat = specific_heat
         self.nodes_number = nodes_number
         self.elements_number = elements_number
+        self.width = width
+        self.height = height
 
     def __repr__(self) -> str:
         return (
@@ -36,15 +40,16 @@ class GlobalData:
             f"conductivity={self.conductivity}, \nalfa={self.alfa}, \ntot={self.tot}, \n"
             f"initial_temp_100={self.initial_temp_100}, \ndensity={self.density}, \n"
             f"specific_heat={self.specific_heat}, \nnodes_number={self.nodes_number}, \n"
-            f"elements_number={self.elements_number}"
+            f"elements_number={self.elements_number}\n"
+            f"width={self.width}, height={self.height}"
         )
 
-    def create_grid(self, width, height):
+    def create_grid(self):
         nodes_arr = create_nodes_arr(
-            self.nodes_number, self.elements_number, width, height
+            self.nodes_number, self.elements_number, self.width, self.height
         )
         elements_arr = create_elements_arr(self.nodes_number, self.elements_number)
-        return Grid(self.nodes_number, self.elements_number, elements_arr, nodes_arr)
+        return Grid(elements_arr, nodes_arr)
 
 
 def create_nodes_arr(nodes_number, elements_number, width, height):

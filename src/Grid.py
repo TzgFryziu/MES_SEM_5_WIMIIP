@@ -1,7 +1,7 @@
 class Grid:
-    def __init__(self, nodes_number, elements_number, elem_arr, node_arr) -> None:
-        self.nodes_number = nodes_number
-        self.elements_number = elements_number
+    def __init__(self, elem_arr, node_arr) -> None:
+        self.nodes_number = len(node_arr)
+        self.elements_number = len(elem_arr)
         self.elem_arr = elem_arr
         self.node_arr = node_arr
 

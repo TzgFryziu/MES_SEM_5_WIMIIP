@@ -8,3 +8,5 @@ Density 7800
 SpecificHeat 700
 Nodes number 16
 Elements number 9
+Height 0.1
+Width 0.1
