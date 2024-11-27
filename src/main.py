@@ -27,4 +27,11 @@ def file_data(filename) -> GlobalData:
 
 data = file_data("test.txt")
 grid = data.create_grid()
-grid.display()
+# grid.display()
+# grid.print_elem()
+print("Global H matrix:")
+h = grid.create_global_h_matrix(data.conductivity, True)
+for i in range(16):
+    for j in range(16):
+        print("{:.3f}".format(h[i, j]), end=" ")
+    print()

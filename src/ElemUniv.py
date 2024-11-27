@@ -87,18 +87,17 @@ class ElemUniv:
 
             results.append(Jacobian(J))
 
-            print(f"Integration point{i + 1}:")
-            print("Jacobi Matrix:\n", results[i].J)
-            print("Det J:", results[i].detJ)
-            print("Inverse J:\n", results[i].J1)
-            print("\n")
+            # print(f"integration point{i + 1}:")
+            # print("jacobi matrix:\n", results[i].j)
+            # print("det j:", results[i].detj)
+            # print("inverse j:\n", results[i].j1)
+            # print("\n")
 
         return results
 
-    def calculate_h_matrix(self, points):
+    def calculate_h_matrix(self, points, k):
         jacobians = self.calculate_jacobian(points)
         H = np.zeros((4, 4))
-        k = 30
 
         # Obliczanie macierzy H dla każdego punktu całkowania i akumulacja ważonej sumy
         for i, jacobian_data in enumerate(jacobians):
@@ -131,16 +130,16 @@ class ElemUniv:
             h_local_weighted = h_local * w_ksi * w_eta
 
             # Wypisz ważoną lokalną macierz H dla tego punktu całkowania
-            print(
-                f"Weigthed local H matrix at integration point {i+1}:\n",
-                h_local_weighted,
-            )
+            # print(
+            #     f"Weigthed local H matrix at integration point {i+1}:\n",
+            #     h_local_weighted,
+            # )
 
             # Dodaj ważoną lokalną macierz H do globalnej macierzy H
             H += h_local_weighted
 
         # Wypisz końcową macierz H
-        print("Final H matrix:\n", H)
+        # print("Final H matrix:\n", H)
 
         return H
 
